@@ -2,38 +2,40 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('Clone Repository') {
             steps {
-                echo 'Cloning source code...'
-                checkout scm
+                git 'https://github.com/reshreshu/devops_final_.git'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo 'Running test script...'
+                sh 'chmod +x test.sh'
                 sh './test.sh'
             }
         }
 
-        stage('Deploy HTML') {
+        stage('Build HTML Page') {
             steps {
-                echo 'Moving HTML to Jenkins workspace...'
-                publishHTML([ 
-                  reportDir: '.', 
-                  reportFiles: 'index.html', 
-                  reportName: 'Product Page'
-                ])
+                echo 'Copying HTML to workspace...'
+                sh 'mkdir -p output && cp index.html output/'
+            }
+        }
+
+        stage('Archive HTML') {
+            steps {
+                archiveArtifacts artifacts: 'output/index.html', fingerprint: true
             }
         }
     }
 
     post {
         success {
-            echo 'Build completed successfully!'
+            echo 'Pipeline finished successfully!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Pipeline failed. Check the logs.'
         }
     }
 }
