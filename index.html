@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>DevOps Pipeline Product Page</title>
 </head>
 <body>
-    <h1>Welcome to My Product Page!</h1>
-    <p>This page is automatically generated and deployed by <strong>Jenkins CI pipeline</strong>.</p>
-    <p>Any changes you push to GitHub will be reflected here after a successful Jenkins build.</p>
+    <h1>Welcome to the DevOps Pipeline Product Page</h1>
+    <p>This page is automatically generated and deployed by the <strong>Jenkins CI pipeline</strong>.</p>
+    
+    <h2>Pipeline Overview</h2>
+    <p>This DevOps pipeline automates the following steps:</p>
+    <ul>
+        <li><strong>Clone Repository:</strong> The code is pulled from the GitHub repository at <a href="https://github.com/reshreshu/devops_final_" target="_blank">DevOps Final GitHub Repository</a>.</li>
+        <li><strong>Run Tests:</strong> The test script is executed to ensure the code is functioning properly.</li>
+        <li><strong>Build HTML Page:</strong> The HTML content is copied to the workspace for deployment.</li>
+        <li><strong>Archive HTML:</strong> The resulting HTML page is archived for future use.</li>
+    </ul>
 
-    <a href="https://github.com/reshreshu/devops_final_" target="_blank">View Repository</a>
+    <h2>Pipeline Details</h2>
+    <p>The pipeline runs automatically whenever there are changes pushed to the repository. The process ensures that the HTML page reflects the latest changes and is deployed accordingly.</p>
 
     <div class="footer">
         <p>Last updated on: <span id="datetime"></span></p>
