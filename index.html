@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #0077cc;
+        }
+        .footer {
+            margin-top: 100px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to My Product Page!</h1>
-    <p>This page is generated and deployed by Jenkins CI pipeline.</p>
+    <p>This page is generated and deployed by <strong>Jenkins CI pipeline</strong>.</p>
+    <p>Any changes you push to GitHub will be reflected here after a successful Jenkins build.</p>
+
+    <div class="footer">
+        <p>Last updated on: <span id="datetime"></span></p>
+    </div>
+
+    <script>
+        document.getElementById("datetime").textContent = new Date().toLocaleString();
+    </script>
 </body>
-</html>
+</html>  
