@@ -23,9 +23,9 @@ pipeline {
             }
         }
 
-        stage('Archive HTML and CSS') {
+       stage('Archive HTML') {
             steps {
-                archiveArtifacts artifacts: 'output/*', fingerprint: true
+                archiveArtifacts artifacts: 'output/index.html', fingerprint: true
             }
         }
     }
