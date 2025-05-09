@@ -18,12 +18,20 @@ pipeline {
 
         stage('Build HTML Page') {
             steps {
-                echo 'Copying HTML and CSS to workspace...'
-                sh 'mkdir -p output && cp index.html style.css output/'
+                echo 'Copying HTML to workspace...'
+                sh 'mkdir -p output && cp $WORKSPACE/index.html $WORKSPACE/output/'
+                // Copy style.css if it exists
+                script {
+                    if (fileExists("$WORKSPACE/style.css")) {
+                        sh 'cp $WORKSPACE/style.css $WORKSPACE/output/'
+                    } else {
+                        echo 'style.css not found, skipping...'
+                    }
+                }
             }
         }
 
-       stage('Archive HTML') {
+        stage('Archive HTML') {
             steps {
                 archiveArtifacts artifacts: 'output/index.html', fingerprint: true
             }
