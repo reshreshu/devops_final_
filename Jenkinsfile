@@ -5,7 +5,6 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'main', url: 'https://github.com/reshreshu/devops_final_.git'
-
             }
         }
 
@@ -19,12 +18,12 @@ pipeline {
 
         stage('Build HTML Page') {
             steps {
-                echo 'Copying HTML to workspace...'
-                sh 'mkdir -p output && cp index.html output/'
+                echo 'Copying HTML and CSS to workspace...'
+                sh 'mkdir -p output && cp index.html style.css output/'
             }
         }
 
-         stage('Archive HTML and CSS') {
+        stage('Archive HTML and CSS') {
             steps {
                 archiveArtifacts artifacts: 'output/*', fingerprint: true
             }
