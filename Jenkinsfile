@@ -18,32 +18,25 @@ pipeline {
 
         stage('Build HTML Page') {
             steps {
-                echo 'Copying HTML to workspace...'
-                sh 'mkdir -p output && cp $WORKSPACE/index.html $WORKSPACE/output/'
-                // Copy style.css if it exists
-                script {
-                    if (fileExists("$WORKSPACE/style.css")) {
-                        sh 'cp $WORKSPACE/style.css $WORKSPACE/output/'
-                    } else {
-                        echo 'style.css not found, skipping...'
-                    }
-                }
+                echo 'Copying HTML to output folder...'
+                sh 'mkdir -p output && cp index.html output/'
             }
         }
 
         stage('Archive HTML') {
             steps {
-                archiveArtifacts artifacts: 'output/index.html', fingerprint: true
+                echo 'Archiving HTML output...'
+                archiveArtifacts artifacts: 'output/**', fingerprint: true
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline finished successfully!'
+            echo '✅ Pipeline finished successfully!'
         }
         failure {
-            echo 'Pipeline failed. Check the logs.'
+            echo '❌ Pipeline failed. Check the logs for errors.'
         }
     }
 }

@@ -1,33 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Pipeline Product Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOps Pipeline Product Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    #home {
+      background: #e9f5ff;
+    }
+
+    #about {
+      background: #fff;
+    }
+
+    #products {
+      background: #f0f0f0;
+    }
+
+    #contact {
+      background: #e2e6ea;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #007bff;
+      color: white;
+    }
+
+    .product-card {
+      display: inline-block;
+      background: white;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 250px;
+    }
+
+    .product-card h3 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to the DevOps Pipeline Product Page</h1>
-    <p>This page is automatically generated and deployed by the <strong>Jenkins CI pipeline</strong>.</p>
-    
-    <h2>Pipeline Overview</h2>
-    <p>This DevOps pipeline automates the following steps:</p>
+
+  <nav>
     <ul>
-        <li><strong>Clone Repository:</strong> The code is pulled from the GitHub repository at <a href="https://github.com/reshreshu/devops_final_" target="_blank">DevOps Final GitHub Repository</a>.</li>
-        <li><strong>Run Tests:</strong> The test script is executed to ensure the code is functioning properly.</li>
-        <li><strong>Build HTML Page:</strong> The HTML content is copied to the workspace for deployment.</li>
-        <li><strong>Archive HTML:</strong> The resulting HTML page is archived for future use.</li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+  </nav>
 
-    <h2>Pipeline Details</h2>
-    <p>The pipeline runs automatically whenever there are changes pushed to the repository. The process ensures that the HTML page reflects the latest changes and is deployed accordingly.</p>
+  <section id="home">
+    <h1>Welcome to Our DevOps Product Site</h1>
+    <p>This site is automatically deployed via Jenkins CI Pipeline.</p>
+  </section>
 
-    <div class="footer">
-        <p>Last updated on: <span id="datetime"></span></p>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We specialize in delivering DevOps solutions that streamline CI/CD pipelines, automate testing, and improve software delivery.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-card">
+      <h3>CI/CD Dashboard</h3>
+      <p>A unified interface to monitor all your DevOps pipelines.</p>
     </div>
+    <div class="product-card">
+      <h3>Auto Deployer</h3>
+      <p>Push code to production in a click, with rollback support.</p>
+    </div>
+    <div class="product-card">
+      <h3>Monitoring Agent</h3>
+      <p>Real-time tracking of performance and logs across systems.</p>
+    </div>
+  </section>
 
-    <script>
-        // Display current date and time
-        document.getElementById("datetime").textContent = new Date().toLocaleString();
-    </script>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@devopscompany.com</p>
+    <p>Phone: +1 234 567 8900</p>
+  </section>
+
+  <div class="footer">
+    <p>Last updated: <span id="datetime"></span></p>
+  </div>
+
+  <script>
+    document.getElementById("datetime").textContent = new Date().toLocaleString();
+  </script>
 </body>
 </html>
